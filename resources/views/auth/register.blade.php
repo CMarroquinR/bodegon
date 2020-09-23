@@ -67,18 +67,30 @@
                             <div class="form-group text-left">
                                 <label for="email">Correo electrónico:</label>
                                 <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}">
+                                @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group text-left">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" value="{{ old('nombre') }}">
+                                @error('nombre')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group text-left">
                                 <label for="apellido">Apellido:</label>
                                 <input type="text" class="form-control" name="apellido" id="apellido" value="{{ old('apellido') }}">
+                                @error('apellido')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group text-left">
                                 <label for="password">Contraseña:</label>
                                 <input type="password" class="form-control" name="password" id="password">
+                                @error('password')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                             <div class="pt-2">¿Ya tienes una cuenta? <a href="{{ route('login') }}">Iniciar sesión</a></div>

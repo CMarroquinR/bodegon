@@ -26,10 +26,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/account', function () {
-        return view('account');
-    })->name('account');
-    Route::get('/publicidad', function () {
-        return view('publicidad');
-    })->name('publicidad');
+    Route::post('categorias/datatable', 'CategoriaProductoController@datatable')->name('categorias.datatable');
+    Route::post('unidades/datatable', 'UnidadMedidaController@datatable')->name('unidades.datatable');
+    Route::post('publicidad/datatable', 'PublicidadController@datatable')->name('publicidad.datatable');
+    Route::post('productos/datatable', 'ProductoController@datatable')->name('productos.datatable');
+    Route::resource('cuenta', 'AccountController');
+    Route::resource('categorias', 'CategoriaProductoController');
+    Route::resource('unidades', 'UnidadMedidaController');
+    Route::resource('publicidad', 'PublicidadController');
+    Route::resource('vender', 'SellController');
+    Route::resource('comprar', 'BuyController');
+    Route::resource('bodegas', 'BodegaController');
+    Route::resource('productos', 'ProductoController');
 });

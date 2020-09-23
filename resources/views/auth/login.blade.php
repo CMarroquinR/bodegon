@@ -67,10 +67,16 @@
                             <div class="form-group text-left">
                                 <label for="email">Correo electrónico:</label>
                                 <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}">
+                                @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group text-left">
                                 <label for="password">Contraseña:</label>
                                 <input type="password" class="form-control" name="password" id="password">
+                                @error('password')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-danger btn-block">Iniciar sesión</button>
                             <div class="pt-2">¿Aún no tienes cuenta? <a href="{{ route('register') }}">Registrarse</a></div>
